@@ -1,0 +1,93 @@
+{
+  "name": "geocoding-node",
+  "version": "0.1.0",
+  "description": "API to integrate with Google Maps Geocoding API",
+  "engines": {
+    "node": "12.18.2",
+    "npm": "6.14.6"
+  },
+  "scripts": {
+    "cover": "npm run test -- --coverage",
+    "test": "NODE_ENV=testing jest --runInBand --forceExit --detectOpenHandles",
+    "test-inspect": "NODE_ENV=testing node --inspect --debug-brk jest",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
+    "lint": "eslint \"**/*.js\" --ignore-pattern ./.eslintrc.js",
+    "lint-diff": "git diff --diff-filter=ACM --name-only --cached --relative | grep \\\\.js$ | xargs eslint",
+    "lint-fix": "npm run lint -- --fix",
+    "outdated": "npm outdated --depth 0",
+    "start-dev": "nodemon --inspect server.js",
+    "start": "node server.js"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "main": "app.js",
+  "homepage": "git@github.com:raparicio6/geocoding-node.git",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:raparicio6/geocoding-node.git.git"
+  },
+  "bugs": {
+    "url": "git@github.com:raparicio6/geocoding-node.git/issues"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    },
+    "collectCoverageFrom": [
+      "app/**/*.js",
+      "!**/node_modules/**",
+      "!**/config/**",
+      "!**/errors.js",
+      "!**/schemaValidator.js",
+      "!**/logger.js"
+    ],
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.4",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "express-wolox-logger": "^2.0.0",
+    "helmet": "^3.22.0",
+    "nock": "^12.0.3",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "babel": "6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.1.0",
+    "babel-preset-es2015": "6.24.1",
+    "coveralls": "^3.1.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-wolox": "^4.0.0",
+    "eslint-config-wolox-node": "^3.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.15.3",
+    "prettier-eslint": "^9.0.1",
+    "supertest": "^4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-diff",
+      "pre-push": "npm test"
+    }
+  }
+}
