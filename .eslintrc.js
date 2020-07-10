@@ -1,1 +1,6 @@
-module.exports = require('eslint-config-wolox-node');
+module.exports = {
+  extends: ['wolox-node'],
+  rules: {
+    'prefer-promise-reject-errors': 'off'
+  }
+};

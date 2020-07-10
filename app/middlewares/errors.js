@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const errors = require('../errors');
 const logger = require('../logger');
 
@@ -5,10 +6,11 @@ const DEFAULT_STATUS_CODE = 500;
 
 const statusCodes = {
   [errors.DEFAULT_ERROR]: 500,
-  [errors.SCHEMA_ERROR]: 422
+  [errors.SCHEMA_ERROR]: 422,
+  [errors.BAD_REQUEST]: 400
 };
 
-exports.handle = (error, req, res) => {
+exports.handle = (error, req, res, next) => {
   if (error.origin) {
     return res.status(error.statusCode).send(error);
   }

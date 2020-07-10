@@ -14,3 +14,6 @@ exports.externalApiError = (statusCode, message, origin = 'External Api') => ({
 
 exports.SCHEMA_ERROR = 'schema_error';
 exports.schemaError = message => internalError(message, exports.SCHEMA_ERROR);
+
+exports.BAD_REQUEST = 'bad_request';
+exports.badRequest = message => internalError(message, exports.BAD_REQUEST);

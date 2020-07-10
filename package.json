@@ -46,7 +46,8 @@
       "!**/config/**",
       "!**/errors.js",
       "!**/schemaValidator.js",
-      "!**/logger.js"
+      "!**/logger.js",
+      "!**/constants.js"
     ],
     "testEnvironment": "node",
     "transform": {
