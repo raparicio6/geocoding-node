@@ -12,7 +12,14 @@ const genericGetGeocode = (req, res, next) =>
       return next(errors.badRequest(error.message));
     });
 
-exports.getGeocode = genericGetGeocode;
+exports.getGeocode = (req, res, next) => {
+  if (!req.query.address && !req.query.components) {
+    return next(errors.schemaError('address or components required'));
+  }
+
+  return genericGetGeocode(req, res, next);
+};
+
 exports.getReverseGeocode = genericGetGeocode;
 
 const getLatitudeAndLongitude = coordinate => coordinate.split(',').map(point => parseFloat(point.trim()));

@@ -7,6 +7,8 @@ const {
 const { GET } = require('../constants');
 
 const OK_STATUS = 'OK';
+const ZERO_RESULTS = 'ZERO_RESULTS';
+const NO_ERROR_STATUSES = [OK_STATUS, ZERO_RESULTS];
 
 exports.getGeocode = params => {
   const options = {
@@ -16,8 +18,8 @@ exports.getGeocode = params => {
   };
   return request(options)
     .then(response => {
-      if (response.data.status !== OK_STATUS) {
-        return Promise.reject({ message: response.data.error_message });
+      if (!NO_ERROR_STATUSES.includes(response.data.status)) {
+        return Promise.reject({ response: { data: { error_message: response.data.error_message } } });
       }
 
       return response.data;
