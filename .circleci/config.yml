@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  coveralls: coveralls/coveralls@1.0.6
 jobs:
   build:
     docker:
@@ -30,4 +28,4 @@ jobs:
           command: npm test
       - run:
           name: code-coverage
-          command: npm run coveralls
+          command: npm run cover
