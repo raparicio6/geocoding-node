@@ -25,9 +25,9 @@ exports.getReverseGeocode = genericGetGeocode;
 const getLatitudeAndLongitude = coordinate => coordinate.split(',').map(point => parseFloat(point.trim()));
 
 exports.calculateGeometricDistance = (req, res) => {
-  const { coordinate1, coordinate2 } = req.query;
-  const [latitude1, longitude1] = getLatitudeAndLongitude(coordinate1);
-  const [latitude2, longitude2] = getLatitudeAndLongitude(coordinate2);
-  const distanceInKm = getGeometricDistanceInKm(latitude1, longitude1, latitude2, longitude2);
+  const { locationOne, locationTwo } = req.query;
+  const [latitudeOne, longitudeOne] = getLatitudeAndLongitude(locationOne);
+  const [latitudeTwo, longitudeTwo] = getLatitudeAndLongitude(locationTwo);
+  const distanceInKm = getGeometricDistanceInKm(latitudeOne, longitudeOne, latitudeTwo, longitudeTwo);
   return res.send(serializeDistance(distanceInKm));
 };

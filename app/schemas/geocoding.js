@@ -30,6 +30,6 @@ exports.getReverseGeocodeSchema = {
 };
 
 exports.calculateGeometricDistanceSchema = {
-  ...stringInQuery('coordinate1', { optional: false, isACoordinate: true }),
-  ...stringInQuery('coordinate2', { optional: false, isACoordinate: true })
+  ...stringInQuery('locationOne', { optional: false, isACoordinate: true }),
+  ...stringInQuery('locationTwo', { optional: false, isACoordinate: true })
 };
