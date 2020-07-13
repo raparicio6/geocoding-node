@@ -22,7 +22,7 @@ exports.getGeocode = (req, res, next) => {
 
 exports.getReverseGeocode = genericGetGeocode;
 
-const getLatitudeAndLongitude = coordinate => coordinate.split(',').map(point => parseFloat(point.trim()));
+const getLatitudeAndLongitude = location => location.split(',').map(point => parseFloat(point.trim()));
 
 exports.calculateGeometricDistance = (req, res) => {
   const { locationOne, locationTwo } = req.query;
