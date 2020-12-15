@@ -1,8 +1,9 @@
 # Geocoding API
 
 [![Build Status](https://circleci.com/gh/raparicio6/geocoding-node.svg?style=shield)](https://circleci.com/gh/raparicio6/geocoding-node)
+[![Coverage Status](https://coveralls.io/repos/github/raparicio6/geocoding-node/badge.svg?branch=master)](https://coveralls.io/github/raparicio6/geocoding-node?branch=master)
 
-<img alt="App" src="./app-imag.png">
+<img alt="App" src="./app-image.png">
 
 - This application consists of an interactive Google Map with a distance calculator between two addresses or two coordinates. The addresses can be either street addresses or building names. 
 - The backend interacts with [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro). This API is awesome! 
